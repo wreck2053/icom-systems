@@ -1,0 +1,14 @@
+.filter-container{
+    height: 25vh;
+    width: 100%;
+    margin-top: 30px;
+    background-color: lightslategray;
+}
+
+#filter-title{
+    text-align: center;
+}
+
+.filter-form{
+    margin: 50px;    
+}

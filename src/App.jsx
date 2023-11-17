@@ -1,19 +1,24 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import MyHeader from "./components/MyHeader";
-import MyCarousel from "./components/MyCarousel";
-import MyNewCarousel from "./components/MyNewCarousel";
-import SpliderSet from "./components/SpliderSet";
-import MyFooter from "./components/MyFoooter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Home from "./components/HomePage/Home";
+import ProductsHome from "./components/ProductPage/ProductsHome";
+import Product from "./components/ProductPage/Product";
+
 
 function App() {
   return (
     <>
-      <MyHeader />
-      <MyCarousel />
-      <MyNewCarousel />
-      <SpliderSet />
-      <MyFooter />
+       <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="product-page" element={<ProductsHome />} />
+            <Route path="product/:prod_type/id/:prod_id" element={<Product />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

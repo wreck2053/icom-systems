@@ -1,0 +1,9 @@
+.prod-home-pg{
+    background-color: bisque;
+    overflow-x: hidden;
+}
+
+#prod-pg-title{
+    text-align: center;
+    margin-top: 50px;
+}
