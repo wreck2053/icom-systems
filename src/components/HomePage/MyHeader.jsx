@@ -1,5 +1,5 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
-import SearchBox from "../scripts/SearchBox";
+import SearchBox from "../../scripts/SearchBox";
 import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -67,6 +67,18 @@ function MyHeader() {
                   <li>
                     <a
                       className="dropdown-item"
+                      href="/product-page"
+                      target="_blank"
+                    >
+                      View all products
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item"
                       href="https://www.google.com/"
                       target="_blank"
                     >
@@ -91,9 +103,6 @@ function MyHeader() {
                     >
                       Hard Drives
                     </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
                   </li>
                   <li>
                     <a

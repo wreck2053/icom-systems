@@ -1,7 +1,7 @@
 #image-1 {
   height: 500px;
   width: 100%;
-  background-image: url("../assets/image1.jpg");
+  background-image: url("../../assets/image1.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat no-repeat;
 }
@@ -9,7 +9,7 @@
 #image-2 {
   height: 500px;
   width: 100%;
-  background-image: url("../assets/image2.jpg");
+  background-image: url("../../assets/image2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat no-repeat;
 }
@@ -17,7 +17,7 @@
 #image-3 {
   height: 500px;
   width: 100%;
-  background-image: url("../assets/image3.jpg");
+  background-image: url("../../assets/image3.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat no-repeat;
 }
