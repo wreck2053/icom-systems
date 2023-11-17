@@ -16,7 +16,7 @@ function SpliderSet() {
     "Product5",
   ];
   const sliderItems = [];
-  for (const i in imageURLs)
+  for (let i in imageURLs)
     sliderItems.push({ imageUrl: imageURLs[i], productName: productNames[i] });
   return (
     <>
