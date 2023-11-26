@@ -32,9 +32,12 @@ function SearchBox() {
       const results = SearchFunction(query, productNames);
 
       const searchResults = document.getElementById("search-results");
+      const searchInput = document.getElementById("search-input");
       searchResults.innerHTML = "";
 
-      if (results.length === 0) {
+      if (query.length === 0) {
+        searchInput.placeholder = "Please enter a product!";
+      } else if (results.length === 0) {
         searchResults.innerHTML = "No results found.";
       } else {
         const ul = document.createElement("ul");
