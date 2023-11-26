@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
-function MySplider({ height, sliderItems, perPage, title }) {
+function MySplider({ height, sliderItems, perPage, title, showArrows = true }) {
   return (
     <>
       <h3>
@@ -14,6 +14,7 @@ function MySplider({ height, sliderItems, perPage, title }) {
           perMove: 1,
           pagination: false,
           autoplay: true,
+          arrows: showArrows,
         }}
       >
         {sliderItems.map((slide, index) => (

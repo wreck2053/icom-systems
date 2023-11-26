@@ -8,11 +8,7 @@ function MyHeader() {
       <SearchBox />
       <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
         <div className="container-fluid">
-          <a
-            className="navbar-brand"
-            href="https://www.google.com/"
-            target="_blank"
-          >
+          <a className="navbar-brand" href="/">
             I-Com Systems
           </a>
           <button
@@ -29,21 +25,12 @@ function MyHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="https://www.google.com/"
-                  target="_blank"
-                >
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="https://www.google.com/"
-                  target="_blank"
-                >
+                <a className="nav-link" href="/about-page">
                   About Us
                 </a>
               </li>
@@ -61,11 +48,7 @@ function MyHeader() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a
-                      className="dropdown-item"
-                      href="/product-page"
-                      target="_blank"
-                    >
+                    <a className="dropdown-item" href="/product-page">
                       View all products
                     </a>
                   </li>
