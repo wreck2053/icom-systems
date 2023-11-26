@@ -1,15 +1,11 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
-import SearchBox from "../../scripts/SearchBox";
-import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import SearchBox from "./SearchBox";
 
 function MyHeader() {
-  useEffect(() => {
-    SearchBox();
-  }, []);
-
   return (
     <>
+      <SearchBox />
       <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
         <div className="container-fluid">
           <a
