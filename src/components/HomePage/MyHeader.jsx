@@ -1,6 +1,7 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.css";
 import SearchBox from "./SearchBox";
+import { Link } from 'react-router-dom';
 
 function MyHeader() {
   return (
@@ -8,9 +9,9 @@ function MyHeader() {
       <SearchBox />
       <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             I-Com Systems
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,14 +26,14 @@ function MyHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about-page">
+                <Link className="nav-link" to="/about-page">
                   About Us
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -48,9 +49,9 @@ function MyHeader() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="/product-page">
+                    <Link className="dropdown-item" to="/product-page">
                       View all products
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
