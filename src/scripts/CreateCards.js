@@ -11,28 +11,52 @@ function CreateCards(data) {
     
     for(let prod_type in data){
 
-        // push heading of prod_type
-        cards.push( 
-            <Row>
-                <Col xs={12}>
+        let row = 0;
+        let remRows = [];
+
+        // Push heading & show more button (if exists) of prod_type
+        cards.push(
+            <div className={'hdr-'+prod_type} style={{display: 'flex'}}>
+                <div style={{marginRight: 100}}>
                     <h3> {prod_type} </h3>
-                </Col>
-            </Row>
+                </div>
+                {Object.keys(data[prod_type]['Product Name']).length > cards_per_row &&
+                <div>
+                    <button className={prod_type} onClick={(event) => {
+                        let btn = event.currentTarget;
+                        let divElement = document.getElementById('rr-'+btn.className);
+
+                        if(btn.textContent === 'Show More'){
+                            btn.textContent = 'Show Less';
+                            divElement.hidden = false;
+                        } else{
+                            btn.textContent = 'Show More';
+                            divElement.hidden = true;
+                        }
+                    }}> 
+                        Show More
+                    </button>
+                </div>}
+            </div>
         );
         cards.push( <br />);
 
         for(let idx in data[prod_type]['Product Name']){
             let prod_name = data[prod_type]['Product Name'][idx];
 
-            // Push row of cards
+            // Push first row into a sep div, rem rows together into another div
             if(idx % cards_per_row === 0){
-                cards.push(
-                    <Row>
-                        {cols}
-                    </Row>
-                );
-                cards.push( <br /> );
-                cols = [];
+                if(row===1){
+                    cards.push(
+                        <div className='first-row' id={'fr-'+prod_type}>
+                            <Row> {cols} </Row>
+                            <br />
+                        </div>
+                    );
+                }
+                else
+                    remRows.push(<Row> {cols} </Row>, <br />);
+                cols = []; row += 1;
             }
             
             // Push card into column
@@ -51,15 +75,26 @@ function CreateCards(data) {
         }
 
         // Push last row of cards of prod_type
-        cards.push(
-            <Row>
-                {cols}
-            </Row>
-        );
-        cards.push( <br /> );
-        cols = [];
+        if(row > 1)
+            remRows.push(<Row> {cols} </Row>, <br />);
+        else{
+            cards.push(
+                <div className='first-row' id={'fr-'+prod_type}>
+                    <Row> {cols} </Row>
+                    <br />
+                </div>
+            );
+        }
+        cols = []; row += 1;
 
-        cards.push( <> <br /> <br /> </> );
+        // Push rem rows as a single div into cards
+        cards.push(
+            <div className='rem-rows' id={'rr-'+prod_type} hidden={true}> 
+                {remRows}
+            </div>
+        );
+
+        cards.push(<br />, <br />);
     }
 
     return cards;

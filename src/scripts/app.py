@@ -4,8 +4,7 @@ import pandas as pd
 from json import loads, dumps
 
 
-# data = pd.read_excel('../assets/Product_List_Structured.xlsx', header=[0,1])
-data = pd.read_excel('C:\\Users\\rahul\\Desktop\\icom-systems\\src\\assets\\Product_List_Structured.xlsx', header=[0,1])
+data = pd.read_excel('../assets/Product_List_Structured.xlsx', header=[0,1])
 
 data.head()
 
