@@ -1,41 +1,28 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import ProductCard from "./ProductCard";
 
-function MySplider({ height, sliderItems, perPage, title, showArrows = true }) {
+function MySplider(props) {
+  console.log(props);
+
   return (
     <>
       <h3>
-        <strong>{title}</strong>
+        <strong>{props.title}</strong>
       </h3>
       <Splide
         options={{
           type: "loop",
-          perPage: perPage,
+          perPage: props.perPage,
           perMove: 1,
           pagination: false,
           autoplay: true,
-          arrows: showArrows,
+          arrows: props.showArrows ?? true,
         }}
       >
-        {sliderItems.map((slide, index) => (
+        {props.sliderItems.map((slide, index) => (
           <SplideSlide key={index} style={{ padding: 5 }}>
-            <a
-              target="_blank"
-              href="https://www.google.com/"
-              style={{ textDecoration: "None" }}
-            >
-              <div className="card bg-transparent">
-                <img
-                  className="card-img-top"
-                  src={slide.imageUrl}
-                  alt="Product Image"
-                  height={height}
-                />
-                <div className="card-body">
-                  <strong>{slide.productName}</strong>
-                </div>
-              </div>
-            </a>
+            <ProductCard height={props.height} image={slide.imageUrl} />
           </SplideSlide>
         ))}
       </Splide>
