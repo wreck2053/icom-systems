@@ -9,6 +9,7 @@ import image5 from "../../assets/image5.jpg";
 function SpliderSet() {
   // custom productDetails
   const productDetails = {
+    Name: "productDetails : Name",
     Capacity: "10TB",
     Brand: "Seagate",
     Interface: "SATA 6Gb/s",
@@ -22,49 +23,43 @@ function SpliderSet() {
     ],
   };
 
-  console.log(productDetails);
-
   const imageURLs = [image1, image2, image3, image4, image5];
-  const productNames = [
-    "Product1",
-    "Product2",
-    "Product3",
-    "Product4",
-    "Product5",
-  ];
-  const sliderItems = [];
-  for (let i in imageURLs)
-    sliderItems.push({ imageUrl: imageURLs[i], productName: productNames[i] });
+  const productData = [];
+  for (let i in imageURLs) {
+    productData.push({
+      imageUrl: imageURLs[i],
+      productDetails,
+    });
+  }
+
+  // console.log(productData);
+
   return (
     <>
       <div className="container">
         <MySplider
           height={200}
-          sliderItems={sliderItems}
+          productData={productData}
           perPage={4}
           title="SSD"
-          productDetails={productDetails}
         />
         <MySplider
           height={200}
-          sliderItems={sliderItems}
+          productData={productData}
           perPage={4}
           title="External Drives SSD"
-          productDetails={productDetails}
         />
         <MySplider
           height={200}
-          sliderItems={sliderItems}
+          productData={productData}
           perPage={4}
           title="Hard Drives"
-          productDetails={productDetails}
         />
         <MySplider
           height={200}
-          sliderItems={sliderItems}
+          productData={productData}
           perPage={4}
           title="External Drives HDD"
-          productDetails={productDetails}
         />
       </div>
     </>

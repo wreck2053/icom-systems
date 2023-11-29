@@ -3,8 +3,6 @@ import "@splidejs/react-splide/css";
 import ProductCard from "./ProductCard";
 
 function MySplider(props) {
-  console.log(props);
-
   return (
     <>
       <h3>
@@ -20,9 +18,13 @@ function MySplider(props) {
           arrows: props.showArrows ?? true,
         }}
       >
-        {props.sliderItems.map((slide, index) => (
+        {props.productData.map((slide, index) => (
           <SplideSlide key={index} style={{ padding: 5 }}>
-            <ProductCard height={props.height} image={slide.imageUrl} />
+            <ProductCard
+              height={props.height}
+              image={slide.imageUrl}
+              productDetails={slide.productDetails}
+            />
           </SplideSlide>
         ))}
       </Splide>

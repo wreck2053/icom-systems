@@ -9,22 +9,40 @@ import image4 from "../../assets/image4.jpg";
 import image5 from "../../assets/image5.jpg";
 
 function Awards() {
-  const imageURLs = [image1, image2, image3, image4, image5];
-  const productNames = ["Award 1", "Award 2", "Award 3", "Award 4", "Award 5"];
-  const sliderItems = [];
-  for (let i in imageURLs)
-    sliderItems.push({ imageUrl: imageURLs[i], productName: productNames[i] });
+  // custom productDetails
+  const productDetails = {
+    Name: "productDetails : Name",
+    Capacity: "10TB",
+    Brand: "Seagate",
+    Interface: "SATA 6Gb/s",
+    Speed: "7200 RPM",
+    Cache: "256MB",
+    Usage: "Internal",
+    "Advanced Features": [
+      "Optimized for creative professionals, gamers, and system builders",
+      "Supports multi-tier caching technology",
+      "Designed for 24/7 operation",
+    ],
+  };
 
-  const showArrows = false;
+  const imageURLs = [image1, image2, image3, image4, image5];
+  const productData = [];
+  for (let i in imageURLs) {
+    productData.push({
+      imageUrl: imageURLs[i],
+      productDetails,
+    });
+  }
+
   return (
     <>
       <div className="container">
         <MySplider
           height={800}
-          sliderItems={sliderItems}
+          productData={productData}
           perPage={1}
           title={"AWARDS"}
-          showArrows={showArrows}
+          showArrows={false}
         />
       </div>
     </>
