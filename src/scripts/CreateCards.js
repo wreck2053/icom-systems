@@ -16,7 +16,7 @@ function CreateCards(data) {
 
         // Push heading & show more button (if exists) of prod_type
         cards.push(
-            <div className={'hdr-'+prod_type} style={{display: 'flex'}}>
+            <div id={'hdr-'+prod_type} style={{display: 'flex'}}>
                 <div style={{marginRight: 100}}>
                     <h3> {prod_type} </h3>
                 </div>
