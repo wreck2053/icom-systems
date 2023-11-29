@@ -10,7 +10,7 @@ import image5 from "../../assets/image5.jpg";
 function MyNewCarousel() {
   // custom productDetails
   const productDetails = {
-    Name: "productDetails : Name",
+    Name: "Product Name #",
     Capacity: "10TB",
     Brand: "Seagate",
     Interface: "SATA 6Gb/s",
@@ -20,18 +20,15 @@ function MyNewCarousel() {
     "Advanced Features": [
       "Optimized for creative professionals, gamers, and system builders",
       "Supports multi-tier caching technology",
-      "Designed for 24/7 operation",
+      "Designed for 24/7 operation 🔥",
     ],
   };
 
-  const imageURLs = [image1, image2, image3, image4, image5];
-  const productData = [];
-  for (let i in imageURLs) {
-    productData.push({
-      imageUrl: imageURLs[i],
-      productDetails,
-    });
-  }
+  const images = [image1, image2, image3, image4, image5];
+  const productData = images.map((image) => ({
+    ...productDetails,
+    Image: image,
+  }));
 
   return (
     <>

@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
+
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
@@ -9,7 +10,7 @@ import image5 from "../../assets/image5.jpg";
 function SpliderSet() {
   // custom productDetails
   const productDetails = {
-    Name: "productDetails : Name",
+    Name: "Product Name #",
     Capacity: "10TB",
     Brand: "Seagate",
     Interface: "SATA 6Gb/s",
@@ -19,20 +20,15 @@ function SpliderSet() {
     "Advanced Features": [
       "Optimized for creative professionals, gamers, and system builders",
       "Supports multi-tier caching technology",
-      "Designed for 24/7 operation",
+      "Designed for 24/7 operation 🔥",
     ],
   };
 
-  const imageURLs = [image1, image2, image3, image4, image5];
-  const productData = [];
-  for (let i in imageURLs) {
-    productData.push({
-      imageUrl: imageURLs[i],
-      productDetails,
-    });
-  }
-
-  // console.log(productData);
+  const images = [image1, image2, image3, image4, image5];
+  const productData = images.map((image) => ({
+    ...productDetails,
+    Image: image,
+  }));
 
   return (
     <>

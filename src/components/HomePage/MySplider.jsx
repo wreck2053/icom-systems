@@ -18,12 +18,12 @@ function MySplider(props) {
           arrows: props.showArrows ?? true,
         }}
       >
-        {props.productData.map((slide, index) => (
+        {props.productData.map((productDetails, index) => (
           <SplideSlide key={index} style={{ padding: 5 }}>
             <ProductCard
               height={props.height}
-              image={slide.imageUrl}
-              productDetails={slide.productDetails}
+              productDetails={productDetails}
+              showModal={props.showModal}
             />
           </SplideSlide>
         ))}
