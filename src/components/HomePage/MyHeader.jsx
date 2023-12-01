@@ -9,7 +9,7 @@ function MyHeader() {
       <SearchBox />
       <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to={"/"}>
+          <Link className="navbar-brand" to="/">
             I-Com Systems
           </Link>
           <button
@@ -26,12 +26,12 @@ function MyHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to={"/"}>
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/about-page"}>
+                <Link className="nav-link" to="/about-page">
                   About Us
                 </Link>
               </li>
@@ -47,7 +47,7 @@ function MyHeader() {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link to={"/product-page"} className="dropdown-item">
+                    <Link className="dropdown-item" to="/product-page">
                       View all products
                     </Link>
                   </li>
@@ -55,40 +55,23 @@ function MyHeader() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to={"https://www.google.com/"}
-                      target="_blank"
-                    >
-                      SSD
+                    <Link className="dropdown-item" to="/product-page#hdr-CRUCIAL SSD">
+                      Crucial SSD
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to={"https://www.google.com/"}
-                      target="_blank"
-                    >
-                      External Drives SSD
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to={"https://www.google.com/"}
-                      target="_blank"
-                    >
-                      Hard Drives
+                    <Link className="dropdown-item" to="/product-page#hdr-EXTERNAL DRIVES">
+                      External Drives
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to={"https://www.google.com/"}
-                      target="_blank"
-                    >
-                      External Drives HDD
+                    <Link className="dropdown-item" to="/product-page#hdr-HDD">
+                      HDD
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/product-page#hdr-TOSHIBA HDD">
+                      Toshiba HDD
                     </Link>
                   </li>
                 </ul>

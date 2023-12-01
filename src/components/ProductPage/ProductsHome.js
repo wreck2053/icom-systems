@@ -1,8 +1,21 @@
 import './ProductsHome.css';
 import Filter from './Filter';
 import AvailableProducts from './AvailableProducts';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 function ProductsHome() {
+  const location = useLocation();
+
+  // Scroll to section
+  useEffect(() => {
+    setTimeout(() => {
+        let id = location.hash.slice(1).replaceAll('%20',' ');
+        document.getElementById(id)?.scrollIntoView();
+    }, 100);
+  }, [location.hash]);
+  
   return (
     <div className='prod-home-pg'>
       <Filter />
