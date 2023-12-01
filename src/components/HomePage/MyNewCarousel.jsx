@@ -8,26 +8,38 @@ import image4 from "../../assets/image4.jpg";
 import image5 from "../../assets/image5.jpg";
 
 function MyNewCarousel() {
-  const imageURLs = [image1, image2, image3, image4, image5];
-  const productNames = [
-    "Product1",
-    "Product2",
-    "Product3",
-    "Product4",
-    "Product5",
-  ];
-  const myItems = [];
-  for (const i in imageURLs)
-    myItems.push({ imageUrl: imageURLs[i], productName: productNames[i] });
+  // custom productDetails
+  const productDetails = {
+    Name: "Product Name #",
+    Capacity: "10TB",
+    Brand: "Seagate",
+    Interface: "SATA 6Gb/s",
+    Speed: "7200 RPM",
+    Cache: "256MB",
+    Usage: "Internal",
+    "Advanced Features": [
+      "Optimized for creative professionals, gamers, and system builders",
+      "Supports multi-tier caching technology",
+      "Designed for 24/7 operation 🔥",
+    ],
+  };
+
+  const images = [image1, image2, image3, image4, image5];
+  const productData = images.map((image) => ({
+    ...productDetails,
+    Image: image,
+  }));
 
   return (
     <>
       <div className="container">
         <MySplider
           height={800}
-          sliderItems={myItems}
+          productData={productData}
           perPage={1}
           title={"MyNewCarousel"}
+          type={"fade"}
+          showArrows={false}
         />
       </div>
     </>

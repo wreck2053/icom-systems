@@ -1,7 +1,7 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.css";
 import SearchBox from "./SearchBox";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function MyHeader() {
   return (
@@ -36,17 +36,15 @@ function MyHeader() {
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="https://www.google.com/"
-                  target="_blank"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Products
-                </a>
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <Link className="dropdown-item" to="/product-page">
@@ -57,35 +55,22 @@ function MyHeader() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-CRUCIAL SSD"
-                    >
+                    <Link className="dropdown-item" to="/product-page#hdr-CRUCIAL SSD">
                       Crucial SSD
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-EXTERNAL DRIVES"
-                    >
+                    <Link className="dropdown-item" to="/product-page#hdr-EXTERNAL DRIVES">
                       External Drives
                     </Link>
                   </li>
-
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-HDD"
-                    >
+                    <Link className="dropdown-item" to="/product-page#hdr-HDD">
                       HDD
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-TOSHIBA HDD"
-                    >
+                    <Link className="dropdown-item" to="/product-page#hdr-TOSHIBA HDD">
                       Toshiba HDD
                     </Link>
                   </li>
