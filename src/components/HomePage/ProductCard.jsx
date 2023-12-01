@@ -39,7 +39,7 @@ function ProductCard(props) {
               <div className="container d-flex">
                 <div
                   className="d-flex justify-content-center align-items-center"
-                  style={{ textAlign: "center", padding: 20 }}
+                  style={{ textAlign: "center", padding: 10, width: "50%" }}
                 >
                   <img
                     src={props.productDetails.Image}
@@ -52,44 +52,50 @@ function ProductCard(props) {
                     }}
                   />
                 </div>
-                <div>
-                  <h4>Product Info:</h4>
-                  <ul>
-                    <li>
-                      <strong>Capacity: </strong>
-                      {props.productDetails.Capacity}
-                    </li>
-                    <li>
-                      <strong>Brand: </strong>
-                      {props.productDetails.Brand}
-                    </li>
-                    <li>
-                      <strong>Interface: </strong>
-                      {props.productDetails.Interface}
-                    </li>
-                    <li>
-                      <strong>Speed: </strong>
-                      {props.productDetails.Speed}
-                    </li>
-                    <li>
-                      <strong>Cache: </strong>
-                      {props.productDetails.Cache}
-                    </li>
-                    <li>
-                      <strong>Usage: </strong>
-                      {props.productDetails.Usage}
-                    </li>
-                    <li>
-                      <strong>Advanced Features: </strong>
-                      <ul>
-                        {props.productDetails["Advanced Features"].map(
-                          (feature, index) => (
-                            <li key={index}>{feature}</li>
-                          )
-                        )}
-                      </ul>
-                    </li>
-                  </ul>
+
+                <div
+                  className="d-flex justify-content-center align-items-center"
+                  style={{ padding: 10 }}
+                >
+                  <div>
+                    <h4>Product Info:</h4>
+                    <ul>
+                      <li>
+                        <strong>Capacity: </strong>
+                        {props.productDetails.Capacity}
+                      </li>
+                      <li>
+                        <strong>Brand: </strong>
+                        {props.productDetails.Brand}
+                      </li>
+                      <li>
+                        <strong>Interface: </strong>
+                        {props.productDetails.Interface}
+                      </li>
+                      <li>
+                        <strong>Speed: </strong>
+                        {props.productDetails.Speed}
+                      </li>
+                      <li>
+                        <strong>Cache: </strong>
+                        {props.productDetails.Cache}
+                      </li>
+                      <li>
+                        <strong>Usage: </strong>
+                        {props.productDetails.Usage}
+                      </li>
+                      <li>
+                        <strong>Advanced Features: </strong>
+                        <ul>
+                          {props.productDetails["Advanced Features"].map(
+                            (feature, index) => (
+                              <li key={index}>{feature}</li>
+                            )
+                          )}
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </Modal.Body>
