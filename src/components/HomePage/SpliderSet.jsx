@@ -24,7 +24,21 @@ function SpliderSet() {
     ],
   };
 
-  const images = [image1, image2, image3, image4, image5];
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+  ];
+
+  console.log(images.length);
+
   const productData = images.map((image) => ({
     ...productDetails,
     Image: image,

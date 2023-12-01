@@ -10,7 +10,8 @@ function MySplider(props) {
       </h3>
       <Splide
         options={{
-          type: "loop",
+          type: props.type ?? "slide",
+          rewind: true,
           perPage: props.perPage,
           perMove: 1,
           pagination: false,

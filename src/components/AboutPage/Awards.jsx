@@ -41,6 +41,7 @@ function Awards() {
           title={"AWARDS"}
           showArrows={false}
           showModal={false}
+          type={"fade"}
         />
       </div>
     </>

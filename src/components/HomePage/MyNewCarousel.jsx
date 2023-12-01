@@ -38,6 +38,8 @@ function MyNewCarousel() {
           productData={productData}
           perPage={1}
           title={"MyNewCarousel"}
+          type={"fade"}
+          showArrows={false}
         />
       </div>
     </>
