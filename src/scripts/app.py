@@ -4,7 +4,7 @@ import pandas as pd
 from json import loads, dumps
 
 # data = pd.read_csv('../assets/ProductDetails.csv')
-data = pd.read_excel('C:\\Users\\rahul\\Desktop\\icom-systems\\src\\assets\\Product_List_Structured.xlsx', header=[0,1])
+data = pd.read_excel('C:\\Users\\rahul\\Desktop\\icom-systems\\src\\assets\\ProductDetails.csv', header=[0,1])
 
 f = lambda x: pd.Series({i:dict(x[i]) for i in x.columns if i != 'Brand'})
 data = data.groupby('Brand').apply(f).transpose()
