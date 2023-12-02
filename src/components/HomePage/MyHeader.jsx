@@ -55,23 +55,23 @@ function MyHeader() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-CRUCIAL SSD">
-                      Crucial SSD
+                    <Link className="dropdown-item" to="/product-page#hdr-CRUCIAL">
+                      CRUCIAL
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-EXTERNAL DRIVES">
-                      External Drives
+                    <Link className="dropdown-item" to="/product-page#hdr-SAMSUNG">
+                      SAMSUNG
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-HDD">
-                      HDD
+                    <Link className="dropdown-item" to="/product-page#hdr-TOSHIBA">
+                      TOSHIBA
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-TOSHIBA HDD">
-                      Toshiba HDD
+                    <Link className="dropdown-item" to="/product-page#hdr-WESTERN DIGITAL">
+                      WESTERN DIGITAL
                     </Link>
                   </li>
                 </ul>
