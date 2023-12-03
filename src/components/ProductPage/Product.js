@@ -11,7 +11,7 @@ function Product(){
 
     useEffect(() => {
         async function fetchData() {
-            const data = await fetch_data();
+            const data = await fetch_data('/formatted-data');
             setData(data);
             setLoading(false);
         }
@@ -21,8 +21,8 @@ function Product(){
     if (loading)
         return (<div> Loading... </div>);
 
-    let prod_name = data[prod_type]['Product Name'][prod_id];
-    let prod_desc = data[prod_type]['Product Description'][prod_id];
+    let prod_name = data[prod_type]['Name'][prod_id];
+    let prod_desc = data[prod_type]['Desc'][prod_id];
 
     return (
         <>

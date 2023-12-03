@@ -12,6 +12,7 @@ function CreateCards(data) {
     for(let prod_type in data){
 
         let row = 0;
+        let card_no = 0;
         let remRows = [];
 
         // Push heading & show more button (if exists) of prod_type
@@ -20,7 +21,7 @@ function CreateCards(data) {
                 <div style={{marginRight: 100}}>
                     <h3> {prod_type} </h3>
                 </div>
-                {Object.keys(data[prod_type]['Product Name']).length > cards_per_row &&
+                {Object.keys(data[prod_type]['Name']).length > cards_per_row &&
                 <div>
                     <button className={prod_type} onClick={(event) => {
                         let btn = event.currentTarget;
@@ -41,11 +42,11 @@ function CreateCards(data) {
         );
         cards.push( <br />);
 
-        for(let idx in data[prod_type]['Product Name']){
-            let prod_name = data[prod_type]['Product Name'][idx];
+        for(let idx in data[prod_type]['Name']){
+            let prod_name = data[prod_type]['Name'][idx];
 
             // Push first row into a sep div, rem rows together into another div
-            if(idx % cards_per_row === 0){
+            if(card_no % cards_per_row === 0){
                 if(row===1){
                     cards.push(
                         <div className='first-row' id={'fr-'+prod_type}>
@@ -56,7 +57,7 @@ function CreateCards(data) {
                 }
                 else
                     remRows.push(<Row> {cols} </Row>, <br />);
-                cols = []; row += 1;
+                cols = []; row += 1; card_no = 0;
             }
             
             // Push card into column
@@ -72,6 +73,7 @@ function CreateCards(data) {
                     </Card>
                 </Col>
             );
+            card_no += 1;
         }
 
         // Push last row of cards of prod_type
@@ -85,7 +87,7 @@ function CreateCards(data) {
                 </div>
             );
         }
-        cols = []; row += 1;
+        cols = []; row += 1; card_no = 0;
 
         // Push rem rows as a single div into cards
         cards.push(

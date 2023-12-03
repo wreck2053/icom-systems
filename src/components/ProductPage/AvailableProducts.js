@@ -9,7 +9,7 @@ function AvailableProducts() {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await fetch_data();
+            const data = await fetch_data('/formatted-data');
             setData(data);
             setLoading(false);
         }

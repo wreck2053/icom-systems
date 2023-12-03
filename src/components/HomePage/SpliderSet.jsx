@@ -37,7 +37,6 @@ function SpliderSet() {
     image5,
   ];
 
-  console.log(images.length);
 
   const productData = images.map((image) => ({
     ...productDetails,
