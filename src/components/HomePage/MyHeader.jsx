@@ -55,22 +55,34 @@ function MyHeader() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-CRUCIAL">
+                    <Link
+                      className="dropdown-item"
+                      to="/product-page#hdr-CRUCIAL"
+                    >
                       CRUCIAL
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-SAMSUNG">
+                    <Link
+                      className="dropdown-item"
+                      to="/product-page#hdr-SAMSUNG"
+                    >
                       SAMSUNG
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-TOSHIBA">
+                    <Link
+                      className="dropdown-item"
+                      to="/product-page#hdr-TOSHIBA"
+                    >
                       TOSHIBA
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/product-page#hdr-WESTERN DIGITAL">
+                    <Link
+                      className="dropdown-item"
+                      to="/product-page#hdr-WESTERN DIGITAL"
+                    >
                       WESTERN DIGITAL
                     </Link>
                   </li>

@@ -1,14 +1,12 @@
-import "./Product.css";
-import prod_img from "../../assets/dummyimage.jpg";
 import fetch_data from "../../scripts/fetchData";
+import create_cards from "../../scripts/createCards";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";
 
-function Product() {
+function AvailableProducts() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  let { prod_type, prod_id } = useParams();
 
   useEffect(() => {
     async function fetchData() {
@@ -21,7 +19,7 @@ function Product() {
 
   if (loading) {
     return (
-      <div className="container" style={{ marginTop: "18%" }}>
+      <div className="container" style={{ marginTop: 25 }}>
         <div className="d-flex justify-content-center align-items-center">
           <LoadingSpinner loading={loading} />
         </div>
@@ -29,18 +27,12 @@ function Product() {
     );
   }
 
-  let prod_name = data[prod_type]["Name"][prod_id];
-  let prod_desc = data[prod_type]["Desc"][prod_id];
-
   return (
     <>
-      <div className="container product-info">
-        <h1 id="prod_hdr"> {prod_name} </h1>
-        <img id="prod_img" src={prod_img} alt="Product" />
-        <p id="prod_desc"> {prod_desc} </p>
-      </div>
+      {create_cards(data)}
+      <Outlet />
     </>
   );
 }
 
-export default Product;
+export default AvailableProducts;

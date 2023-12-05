@@ -1,14 +1,12 @@
 import MyCarousel from "./MyCarousel";
-import MyNewCarousel from "./MyNewCarousel";
 import SpliderSet from "./SpliderSet";
 
 function Home() {
   return (
-    <>
+    <div className="container">
       <MyCarousel />
-      <MyNewCarousel />
       <SpliderSet />
-    </>
+    </div>
   );
 }
 

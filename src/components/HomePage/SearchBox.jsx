@@ -1,6 +1,6 @@
-import fetch_data from "../../scripts/FetchData";
+import fetch_data from "../../scripts/fetchData";
 import { useState, useEffect } from "react";
-import SearchFunction from "../../scripts/SearchFunction";
+import searchFunction from "../../scripts/searchFunction";
 
 function SearchBox() {
   // Product data
@@ -29,7 +29,7 @@ function SearchBox() {
   if (!loading) {
     // Function to display search results
     function DisplaySearchResults(query) {
-      const results = SearchFunction(query, productNames);
+      const results = searchFunction(query, productNames);
 
       const searchResults = document.getElementById("search-results");
       const searchInput = document.getElementById("search-input");
