@@ -65,34 +65,16 @@ function ProductCard(props) {
                         {props.productDetails.Capacity}
                       </li>
                       <li>
-                        <strong>Brand: </strong>
-                        {props.productDetails.Brand}
-                      </li>
-                      <li>
-                        <strong>Interface: </strong>
-                        {props.productDetails.Interface}
-                      </li>
-                      <li>
-                        <strong>Speed: </strong>
-                        {props.productDetails.Speed}
-                      </li>
-                      <li>
-                        <strong>Cache: </strong>
-                        {props.productDetails.Cache}
+                        <strong>Type: </strong>
+                        {props.productDetails.Type}
                       </li>
                       <li>
                         <strong>Usage: </strong>
                         {props.productDetails.Usage}
                       </li>
                       <li>
-                        <strong>Advanced Features: </strong>
-                        <ul>
-                          {props.productDetails["Advanced Features"].map(
-                            (feature, index) => (
-                              <li key={index}>{feature}</li>
-                            )
-                          )}
-                        </ul>
+                        <strong>Product Description: </strong>
+                        {props.productDetails.Desc}
                       </li>
                     </ul>
                   </div>

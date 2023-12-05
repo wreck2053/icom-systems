@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
+import { useState, useEffect } from "react";
+import fetch_data from "../../scripts/FetchData";
 
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
@@ -8,21 +10,19 @@ import image4 from "../../assets/image4.jpg";
 import image5 from "../../assets/image5.jpg";
 
 function SpliderSet() {
-  // custom productDetails
-  const productDetails = {
-    Name: "Product Name #",
-    Capacity: "10TB",
-    Brand: "Seagate",
-    Interface: "SATA 6Gb/s",
-    Speed: "7200 RPM",
-    Cache: "256MB",
-    Usage: "Internal",
-    "Advanced Features": [
-      "Optimized for creative professionals, gamers, and system builders",
-      "Supports multi-tier caching technology",
-      "Designed for 24/7 operation 🔥",
-    ],
-  };
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch_data("/data");
+      setData(data);
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  if (loading) return <h1 className="container">LOADING...</h1>;
 
   const images = [
     image1,
@@ -35,38 +35,220 @@ function SpliderSet() {
     image3,
     image4,
     image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
   ];
 
+  for (let id in data) data[id].Image = images[id];
+  const productData = Object.values(data);
 
-  const productData = images.map((image) => ({
-    ...productDetails,
-    Image: image,
-  }));
+  const InternalSSD = [];
+  const ExternalSSD = [];
+  const InternalHDD = [];
+  const ExternalHDD = [];
+
+  for (let product of productData) {
+    if (product.Usage === "Internal") {
+      product.Type === "SSD"
+        ? InternalSSD.push(product)
+        : InternalHDD.push(product);
+    } else {
+      product.Type === "SSD"
+        ? ExternalSSD.push(product)
+        : ExternalHDD.push(product);
+    }
+  }
+
+  function shuffleList(list) {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+  }
+
+  shuffleList(InternalSSD);
+  shuffleList(ExternalSSD);
+  shuffleList(InternalHDD);
+  shuffleList(ExternalHDD);
+
+  let perSlider = 8;
+  InternalSSD.splice(perSlider);
+  ExternalSSD.splice(perSlider);
+  InternalHDD.splice(perSlider);
+  ExternalHDD.splice(perSlider);
 
   return (
     <>
       <div className="container">
         <MySplider
           height={200}
-          productData={productData}
+          productData={InternalSSD}
           perPage={4}
           title="SSD"
         />
         <MySplider
           height={200}
-          productData={productData}
+          productData={ExternalSSD}
           perPage={4}
           title="External Drives SSD"
         />
         <MySplider
           height={200}
-          productData={productData}
+          productData={InternalHDD}
           perPage={4}
           title="Hard Drives"
         />
         <MySplider
           height={200}
-          productData={productData}
+          productData={ExternalHDD}
           perPage={4}
           title="External Drives HDD"
         />
