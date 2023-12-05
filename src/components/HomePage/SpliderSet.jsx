@@ -8,6 +8,7 @@ import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
 import image4 from "../../assets/image4.jpg";
 import image5 from "../../assets/image5.jpg";
+import LoadingSpinner from "../LoadingSpinner";
 
 function SpliderSet() {
   const [data, setData] = useState(null);
@@ -22,7 +23,15 @@ function SpliderSet() {
     fetchData();
   }, []);
 
-  if (loading) return <h1 className="container">LOADING...</h1>;
+  if (loading) {
+    return (
+      <div className="container" style={{ marginTop: 25 }}>
+        <div className="d-flex justify-content-center align-items-center">
+          <LoadingSpinner loading={loading} />
+        </div>
+      </div>
+    );
+  }
 
   const images = [
     image1,
