@@ -1,11 +1,17 @@
 import "./Product.css";
-import prod_img from "../../assets/dummyimage.jpg";
 import fetch_data from "../../scripts/FetchData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";
 
+// new import to map image to product
+import { numericSort } from "../../scripts/HelperFunctions";
+
 function Product() {
+  const imagesContext = require.context("../../assets/images", false, /\.jpg$/);
+  const imageFiles = imagesContext.keys();
+
+  const images = imageFiles.sort(numericSort);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   let { prod_type, prod_id } = useParams();
@@ -31,6 +37,7 @@ function Product() {
 
   let prod_name = data[prod_type]["Name"][prod_id];
   let prod_desc = data[prod_type]["Desc"][prod_id];
+  let prod_img = imagesContext(images[prod_id]);
 
   return (
     <>
