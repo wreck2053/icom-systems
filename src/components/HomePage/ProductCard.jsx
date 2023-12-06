@@ -82,7 +82,14 @@ function ProductCard(props) {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Link to={"/product-page"}>
+              <Link
+                to={
+                  "/product/" +
+                  props.productDetails.Brand +
+                  "/id/" +
+                  props.productDetails.ID
+                }
+              >
                 <Button variant="secondary" onClick={handleClose}>
                   View on Product Page
                 </Button>

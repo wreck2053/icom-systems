@@ -43,7 +43,10 @@ function App() {
     );
   }
 
-  for (let id in data) data[id].Image = imagesContext(images[id]);
+  for (let id in data) {
+    data[id].Image = imagesContext(images[id]);
+    data[id].ID = id;
+  }
   const productData = Object.values(data);
   const brandNames = Object.values(brands);
 
