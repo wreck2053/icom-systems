@@ -6,13 +6,11 @@ import Home from "./components/HomePage/Home";
 import ProductsHome from "./components/ProductPage/ProductsHome";
 import Product from "./components/ProductPage/Product";
 import AboutPage from "./components/AboutPage/AboutPage";
-import YourComponent from "./components/YourComponent";
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      < YourComponent />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
