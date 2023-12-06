@@ -1,14 +1,17 @@
-.filter-container{
-    height: 25vh;
-    width: 100%;
-    margin-top: 30px;
-    background-color: lightslategray;
+.filter-form {
+  background-color: #9FA6B2;
+  margin: 50px;
 }
 
-#filter-title{
-    text-align: center;
+.form-grp {
+  margin: 30px;
 }
 
-.filter-form{
-    margin: 50px;    
+.button-grp {
+  margin: 70px;
+  display: flex;
+}
+
+.button-grp button {
+  margin-left: 30px;
 }
