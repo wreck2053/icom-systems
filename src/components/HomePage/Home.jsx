@@ -1,11 +1,14 @@
 import MyCarousel from "./MyCarousel";
 import SpliderSet from "./SpliderSet";
 
-function Home() {
+function Home(props) {
   return (
     <div className="container">
-      <MyCarousel />
-      <SpliderSet />
+      <MyCarousel
+        productData={props.productData}
+        brandNames={props.brandNames}
+      />
+      <SpliderSet productData={props.productData} />
     </div>
   );
 }
