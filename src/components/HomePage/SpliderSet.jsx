@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
 import { useState, useEffect } from "react";
-import fetch_data from "../../scripts/fetchData";
+import fetch_data from "../../scripts/FetchData";
 
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";

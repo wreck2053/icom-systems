@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
-import fetch_data from "../../scripts/fetchData";
+import fetch_data from "../../scripts/FetchData";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../LoadingSpinner";
 

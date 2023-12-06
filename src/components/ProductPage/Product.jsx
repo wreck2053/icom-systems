@@ -1,6 +1,6 @@
 import "./Product.css";
 import prod_img from "../../assets/dummyimage.jpg";
-import fetch_data from "../../scripts/fetchData";
+import fetch_data from "../../scripts/FetchData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";

@@ -1,5 +1,5 @@
-import fetch_data from "../../scripts/fetchData";
-import create_cards from "../../scripts/createCards";
+import fetch_data from "../../scripts/FetchData";
+import create_cards from "../../scripts/CreateCards";
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner";
