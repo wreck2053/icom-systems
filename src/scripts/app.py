@@ -6,10 +6,12 @@ from json import loads, dumps
 data = pd.read_csv('../assets/ProductDetails.csv')
 df1 = data.copy(); df2 = data.copy()
 
+
 ## Original data format
 df1.index = df1['ID']
 df1 = df1.drop('ID', axis=1).transpose()
 d = loads(df1.to_json())
+
 
 ## Formatted data
 f = lambda x: pd.Series({i:dict(x[i]) for i in x.columns if i != 'Brand'})
