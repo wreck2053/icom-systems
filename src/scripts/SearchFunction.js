@@ -1,4 +1,4 @@
-function SearchFunction(query, productNames) {
+function searchFunction(query, productNames) {
   const results = productNames.filter((item) =>
     item.toLowerCase().includes(query.toLowerCase())
   );
@@ -6,4 +6,4 @@ function SearchFunction(query, productNames) {
   return results;
 }
 
-export default SearchFunction;
+export default searchFunction;

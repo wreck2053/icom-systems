@@ -1,9 +1,14 @@
 .prod-home-pg{
-    background-color: bisque;
-    overflow-x: hidden;
+  background-color: bisque;
+  overflow-x: hidden;
 }
 
 #prod-pg-title{
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin: 50px;
+}
+
+#filter-title{
+  text-align: center;
+  margin-top: 50px;
 }

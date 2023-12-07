@@ -1,16 +1,22 @@
-#prod_hdr{
-    text-align: center;
-    margin: 5%;
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#prod_img{
-    height: 300px;
-    width: 500px;
-    margin-left: 35%;
+#prod_hdr {
+  text-align: center;
+  margin: 7%;
 }
 
-#prod_desc{
-    text-align: center;
-    font-size: larger;
-    margin-top: 70px;
+#prod_img {
+  height: 300px;
+  width: 500px;
+}
+
+#prod_desc {
+  text-align: center;
+  font-size: larger;
+  margin-top: 70px;
 }

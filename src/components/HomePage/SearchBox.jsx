@@ -9,7 +9,7 @@ function SearchBox() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch_data();
+      const data = await fetch_data("/formatted-data");
       setData(data);
       setLoading(false);
     }
@@ -19,7 +19,7 @@ function SearchBox() {
   const productTypes = [];
   const productNames = [];
 
-  for (let key in data) productTypes.push(data[key]["Product Name"]);
+  for (let key in data) productTypes.push(data[key]["Name"]);
   for (let key in productTypes) {
     for (let productName of Object.values(productTypes[key])) {
       productNames.push(productName);
