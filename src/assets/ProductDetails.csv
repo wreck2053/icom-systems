@@ -24,8 +24,8 @@ ID,Name,Type,Usage,Brand,Capacity,Desc
 22,SEAGATE 6TB EXPANSION USB 3.5 (STKP6000400),HDD,External,SEAGATE,6TB,"Seagate 6TB Expansion USB 3.5"" delivering substantial and versatile storage (STKP6000400)."
 23,SEAGATE 6TB ONE TOUCH HUB 3.5 (STLC6000400),HDD,External,SEAGATE,6TB,"Seagate One Touch Hub 3.5 with 6TB storage capacity, providing a versatile and user-friendly storage solution."
 24,SEAGATE 8TB ONE TOUCH HUB STLC8000400,HDD,External,SEAGATE,8TB,Seagate One Touch Hub with 8TB capacity for convenient and high-capacity storage needs.
-25,FYBER 8CH SMPS (PS-1208),,,FYBER,,Fyber 8CH SMPS (Power Supply) for efficient power management in various applications.
-26,FYBER SURGE PROTECTOR FY-SP11,,,FYBER,,Fyber Surge Protector FY-SP11 for protecting electronic devices from power surges.
+25,FYBER 8CH SMPS (PS-1208),Other,External,FYBER,,Fyber 8CH SMPS (Power Supply) for efficient power management in various applications.
+26,FYBER SURGE PROTECTOR FY-SP11,Other,External,FYBER,,Fyber Surge Protector FY-SP11 for protecting electronic devices from power surges.
 27,HDD SEAGATE 4TB ENTERPRISES -ST4000NM002A,HDD,Internal,SEAGATE,4TB,Seagate 4TB Enterprise HDD for robust and reliable storage in enterprise environments.
 28,SEAGATE 10 TB ENTERPRISE - ST 10000NM017B,HDD,Internal,SEAGATE,10TB,Seagate 10TB Enterprise HDD offering high-capacity storage for enterprise applications.
 29,SEAGATE 12TB ENTERPRISE SATA ST12000NM001G,HDD,Internal,SEAGATE,12TB,Seagate 12TB Enterprise SATA HDD for extensive and reliable enterprise-level storage.
@@ -72,7 +72,7 @@ ID,Name,Type,Usage,Brand,Capacity,Desc
 70,HDD SEAGATE 6TB SV SKYHAWK ST6000VX009,HDD,Internal,SEAGATE,6TB,Seagate 6TB Skyhawk Surveillance HDD with optimized performance for surveillance applications.
 71,HDD SEAGATE 8TB SV DRIVE-ST8000VE001,HDD,Internal,SEAGATE,8TB,Seagate 8TB Skyhawk Surveillance Drive offering extensive storage for surveillance systems.
 72,SEAGATE 10TB SKYHAWK SV HDD ST10000VE001,HDD,Internal,SEAGATE,10TB,Seagate 10TB Skyhawk SV HDD delivering high-capacity storage for surveillance applications.
-73,SYNOLOGY DS423 4BAY NAS BOX,NAS,Internal,SYNOLOGY,,SYNOLOGY DS423 4BAY NAS BOX: 4-bay NAS box for efficient network-attached storage solutions.
+73,SYNOLOGY DS423 4BAY NAS BOX,Other,Internal,SYNOLOGY,,SYNOLOGY DS423 4BAY NAS BOX: 4-bay NAS box for efficient network-attached storage solutions.
 74,TOSHIBA 1TB 2.5 NOTEBOOK DRIVE- HDWL110UZSVA,HDD,Internal,TOSHIBA,1TB,"TOSHIBA 1TB 2.5 NOTEBOOK DRIVE- HDWL110UZSVA: 1TB 2.5"" notebook drive for portable storage in notebooks."
 75,TOSHIBA 1TB AV HARD DRIVE(HDWV110UZSVA),HDD,Internal,TOSHIBA,1TB,TOSHIBA 1TB AV HARD DRIVE(HDWV110UZSVA): 1TB AV hard drive designed for audio and video applications.
 76,TOSHIBA 1TB CANVIO READY EXT HDD(HDTP310AK3AA),HDD,Internal,TOSHIBA,1TB,TOSHIBA 1TB CANVIO READY EXT HDD(HDTP310AK3AA): 1TB external HDD in the Canvio Ready series for easy-to-use additional storage.
@@ -99,7 +99,7 @@ ID,Name,Type,Usage,Brand,Capacity,Desc
 97,WD 4TB (4000GB) SATA RED- WD40EFZX,HDD,External,WESTERN DIGITAL,4TB,High-capacity 4TB SATA RED HDD designed for NAS systems with the WD40EFZX model.
 98,WD 6TB RED HARD DISK -WD60EFPX,HDD,External,WESTERN DIGITAL,6TB,Reliable 6TB RED hard disk from Western Digital's WD60EFPX series.
 99,WD 8TB RED DRIVE-WD80EFZZ,HDD,External,WESTERN DIGITAL,8TB,Spacious 8TB RED drive designed for network-attached storage (NAS) with the WD80EFZZ model.
-100,SANDISK 128GB SD EXTREME PRO CARD,SD Card,External,WESTERN DIGITAL,128GB,SANDISK 128GB SD EXTREME PRO CARD offering high-speed and durable storage for photography and videography.
+100,SANDISK 128GB SD EXTREME PRO CARD,Other,External,WESTERN DIGITAL,128GB,SANDISK 128GB SD EXTREME PRO CARD offering high-speed and durable storage for photography and videography.
 101,SANDISK 1TB EXTREME PORTABLE SSD,SSD,External,WESTERN DIGITAL,1TB,Portable SANDISK 1TB EXTREME SSD for on-the-go storage with speed and durability.
 102,SANDISK 4TB PORTABLE EXTREME SSD E61 (1050MBPS),SSD,External,WESTERN DIGITAL,4TB,SANDISK 4TB PORTABLE EXTREME SSD E61 (1050MBPS) providing high-speed and portable storage in the E61 series.
 103,WD 1TB BLACK NVME SN850X SSD (WDS100T2X0E),SSD,Internal,WESTERN DIGITAL,1TB,WD 1TB BLACK NVME SN850X SSD (WDS100T2X0E) offering ultra-fast NVMe storage in a sleek black design.

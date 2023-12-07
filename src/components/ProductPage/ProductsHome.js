@@ -14,7 +14,7 @@ function ProductsHome() {
   const [globalFilter, setGlobalFilter] = useState({});
 
 
-  // Scroll to section
+  // Scroll to Section
   useEffect(() => {
     setTimeout(() => {
         let id = location.hash.slice(1).replaceAll('%20',' ');
@@ -23,7 +23,7 @@ function ProductsHome() {
   }, [location.hash]);
 
 
-  // Fetch brands from dataset and set initial state of filter
+  // Fetch brands from dataset (over network) and set initial state of filter
   useEffect(() => {
     async function fetchData() {
         const data = await fetch_data('/brands');
@@ -53,16 +53,15 @@ function ProductsHome() {
 
   return (
     <div className='prod-home-pg'>
+      <h1 id='filter-title'> Filter Your Search </h1>
       <Filter
         filter={globalFilter}
         brands={brands}
         setGlobalFilter={setGlobalFilter}
       />
-      <FilterParams
-        filter={globalFilter}
-      />
+      <FilterParams filter={globalFilter} />
       <h1 id='prod-pg-title'> Available Products </h1>
-      <AvailableProducts />
+      <AvailableProducts filter={globalFilter} />
     </div>
   );
 }

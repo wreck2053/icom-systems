@@ -1,5 +1,5 @@
 import './Filter.css';
-import { create_brands_checkboxes, handleChange, handleSubmit, handleReset } from '../../scripts/FilterUtilities';
+import { createBrandsCheckboxes, handleChange, handleSubmit, handleReset } from '../../scripts/FilterUtilities';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -71,7 +71,7 @@ function Filter(props){
                 <Col>
                     <Form.Group className='form-grp'>
                         <h3> Brand </h3>
-                        {create_brands_checkboxes(brands, handleChange, setFilter)}
+                        {createBrandsCheckboxes(brands, handleChange, setFilter)}
                     </Form.Group>
                 </Col>
                 <Col>
