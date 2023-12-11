@@ -13,6 +13,8 @@ import fetch_data from "./scripts/FetchData";
 import { numericSort, shuffleList } from "./scripts/HelperFunctions";
 import LoadingSpinner from "./components/LoadingSpinner";
 
+import NotFound from "./components/NotFound";
+
 function App() {
   const imagesContext = require.context("./assets/images", false, /\.jpg$/);
   const imageFiles = imagesContext.keys();
@@ -70,6 +72,7 @@ function App() {
               path="product/:prod_type/id/:prod_id"
               element={<Product />}
             />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
