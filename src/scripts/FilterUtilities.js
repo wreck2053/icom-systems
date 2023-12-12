@@ -144,6 +144,8 @@ export function filterData(data, Filter){
             )
                 filteredDataIDs[brand].add(ID);
         }
+        if(filteredDataIDs[brand].size === 0)
+            delete filteredDataIDs[brand];
     }
     
     // Get Product Data of all product IDs that pass the filter
