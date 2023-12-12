@@ -13,6 +13,5 @@ function FilterParams(props) {
         </div>
     );
 }
-  
 
 export default FilterParams;

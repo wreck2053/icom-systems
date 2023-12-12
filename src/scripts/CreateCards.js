@@ -1,10 +1,9 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
-function createCards(data) {
+function createCards(data, imagesContext) {
   let cards_per_row = 4;
   let cols = [];
   let cards = [];
@@ -47,6 +46,7 @@ function createCards(data) {
 
     for (let idx in data[prod_type]["Name"]) {
       let prod_name = data[prod_type]["Name"][idx];
+      let prod_img = imagesContext('./' + idx + '.jpg');
 
       // Push first row into a sep div, rem rows together into another div
       if (card_no % cards_per_row === 0) {
@@ -66,14 +66,16 @@ function createCards(data) {
       // Push card into column
       cols.push(
         <Col xs={12 / cards_per_row} className="d-flex">
-          <Card style={{ width: "18rem" }} className="flex-fill">
-            <Card.Body>
-              <Card.Title> {prod_name} </Card.Title>
-              <Link to={"/product/" + prod_type + "/id/" + idx}>
-                <Button variant="primary"> View Product </Button>
-              </Link>
-            </Card.Body>
-          </Card>
+          <Link
+            to={"/product/" + prod_type + "/id/" + idx}
+            style={{textDecoration: 'none'}}>
+            <Card style={{ width: "18rem", padding: "10px"}} className="flex-fill">
+              <Card.Img variant="top" src={prod_img} height={200} />
+              <Card.Body>
+                <Card.Title> {prod_name} </Card.Title>
+              </Card.Body>
+            </Card>
+          </Link>
         </Col>
       );
       card_no += 1;
