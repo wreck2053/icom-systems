@@ -10,7 +10,7 @@ function AvailableProducts(props) {
 
     return (
         <> 
-            {create_cards(filteredData, props.imagesContext)}
+            {create_cards(filteredData)}
         </>
     );
 }

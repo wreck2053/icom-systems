@@ -1,12 +1,13 @@
 import "./Product.css";
 import { useParams } from "react-router-dom";
+import { imagesContext } from "../../scripts/HelperFunctions";
 
 function Product(props) {
   let { prod_type, prod_id } = useParams();
 
   let prod_name = props.data[prod_type]["Name"][prod_id];
   let prod_desc = props.data[prod_type]["Desc"][prod_id];
-  let prod_img = props.imagesContext('./' + prod_id + '.jpg');
+  let prod_img = imagesContext("./" + prod_id + ".jpg");
 
   return (
     <>

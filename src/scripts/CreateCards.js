@@ -2,8 +2,9 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import { imagesContext } from "./HelperFunctions";
 
-function createCards(data, imagesContext) {
+function createCards(data) {
   let cards_per_row = 4;
   let cols = [];
   let cards = [];

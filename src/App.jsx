@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import fetch_data from "./scripts/FetchData";
-import { numericSort } from "./scripts/HelperFunctions";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/HomePage/Home";
 import ProductsHome from "./components/ProductPage/ProductsHome";
@@ -13,10 +12,6 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import NotFound from "./components/NotFound";
 
 function App() {
-  const imagesContext = require.context("./assets/images", false, /\.jpg$/);
-  const imageFiles = imagesContext.keys();
-  const images = imageFiles.sort(numericSort);
-
   const [data, setData] = useState(null);
   const [brands, setBrands] = useState(null);
   const [formattedData, setFormattedData] = useState(null);
@@ -53,20 +48,12 @@ function App() {
             <Route index element={<Home brands={brands} data={data} />} />
             <Route
               path="product-page"
-              element={
-                <ProductsHome
-                  brands={brands}
-                  data={formattedData}
-                  imagesContext={imagesContext}
-                />
-              }
+              element={<ProductsHome brands={brands} data={formattedData} />}
             />
             <Route path="about-page" element={<AboutPage />} />
             <Route
               path="product/:prod_type/id/:prod_id"
-              element={
-                <Product data={formattedData} imagesContext={imagesContext} />
-              }
+              element={<Product data={formattedData} />}
             />
             <Route path="*" element={<NotFound />} />
           </Route>

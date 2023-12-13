@@ -48,7 +48,6 @@ function ProductsHome(props) {
       <AvailableProducts
         filter={globalFilter}
         data={props.data}
-        imagesContext={props.imagesContext}
       />
     </div>
   );
