@@ -1,10 +1,12 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
+import { homePageData } from "../../scripts/HelperFunctions";
 
 function MyCarousel(props) {
+  const [productData, brandNames] = homePageData(props.data, props.brands);
   const topProducts = [];
-  for (let brandName of props.brandNames) {
-    for (let product of props.productData) {
+  for (let brandName of brandNames) {
+    for (let product of productData) {
       if (brandName === product.Brand) {
         topProducts.push(product);
         break;

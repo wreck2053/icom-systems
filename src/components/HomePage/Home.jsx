@@ -4,11 +4,8 @@ import SpliderSet from "./SpliderSet";
 function Home(props) {
   return (
     <div className="container">
-      <MyCarousel
-        productData={props.productData}
-        brandNames={props.brandNames}
-      />
-      <SpliderSet productData={props.productData} />
+      <MyCarousel data={props.data} brands={props.brands} />
+      <SpliderSet data={props.data} brands={props.brands} />
     </div>
   );
 }

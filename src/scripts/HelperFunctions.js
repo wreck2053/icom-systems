@@ -11,3 +11,24 @@ export function shuffleList(list) {
     [list[i], list[j]] = [list[j], list[i]];
   }
 }
+
+export const imagesContext = require.context(
+  "../assets/images",
+  false,
+  /\.jpg$/
+);
+
+export function homePageData(data, brands) {
+  for (let id in data) {
+    data[id].Image = imagesContext("./" + id + ".jpg");
+    data[id].ID = id;
+  }
+
+  const productData = Object.values(data);
+  const brandNames = Object.values(brands);
+
+  shuffleList(productData);
+  shuffleList(brandNames);
+
+  return [productData, brandNames];
+}
