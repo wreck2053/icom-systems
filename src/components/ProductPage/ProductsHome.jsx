@@ -1,17 +1,27 @@
 import './ProductsHome.css';
-import fetch_data from '../../scripts/FetchData';
 import Filter from './Filter';
+import FilterParams from './FilterParams';
 import AvailableProducts from './AvailableProducts';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import FilterParams from './FilterParams';
 
 
-function ProductsHome() {
+function ProductsHome(props) {
   const location = useLocation();
-  const [brands, setBrands] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [globalFilter, setGlobalFilter] = useState({});
+  const [globalFilter, setGlobalFilter] = useState({
+    'Type': {
+        'SSD': false,
+        'HDD': false,
+        'Other': false,
+    },
+    'Usage': {
+        'External': false,
+        'Internal': false,
+    },
+    'Capacity': null,
+    'Brand': Object.fromEntries(Object.keys(props.brands).map(key => [props.brands[key], false])),
+    'Name': '',
+  });
 
 
   // Scroll to Section
@@ -23,45 +33,22 @@ function ProductsHome() {
   }, [location.hash]);
 
 
-  // Fetch brands from dataset (over network) and set initial state of filter
-  useEffect(() => {
-    async function fetchData() {
-        const data = await fetch_data('/brands');
-        setBrands(data);
-        setLoading(false);
-        setGlobalFilter({
-          'Type': {
-              'SSD': false,
-              'HDD': false,
-              'Other': false,
-          },
-          'Usage': {
-              'External': false,
-              'Internal': false,
-          },
-          'Capacity': null,
-          'Brand': Object.fromEntries(Object.keys(data).map(key => [data[key], false])),
-          'Name': '',
-        });
-    }
-    fetchData();
-  }, []);
-
-  if (loading)
-      return (<div> Loading... </div>);
-
-
   return (
-    <div className='prod-home-pg'>
+    <div className='container'>
       <h1 id='filter-title'> Filter Your Search </h1>
       <Filter
         filter={globalFilter}
-        brands={brands}
+        brands={props.brands}
         setGlobalFilter={setGlobalFilter}
       />
-      <FilterParams filter={globalFilter} />
+      <FilterParams
+        filter={globalFilter}
+      />
       <h1 id='prod-pg-title'> Available Products </h1>
-      <AvailableProducts filter={globalFilter} />
+      <AvailableProducts
+        filter={globalFilter}
+        data={props.data}
+      />
     </div>
   );
 }

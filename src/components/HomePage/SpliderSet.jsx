@@ -1,13 +1,16 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
+import { homePageData } from "../../scripts/HelperFunctions";
 
 function SpliderSet(props) {
+  const [productData] = homePageData(props.data, props.brands);
+
   const InternalSSD = [];
   const ExternalSSD = [];
   const InternalHDD = [];
   const ExternalHDD = [];
 
-  for (let product of props.productData) {
+  for (let product of productData) {
     if (product.Usage === "Internal") {
       product.Type === "SSD"
         ? InternalSSD.push(product)
