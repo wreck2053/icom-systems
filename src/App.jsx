@@ -44,7 +44,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout brands={brands} data={data} />}>
+          <Route path="/" element={<Layout brands={brands} />}>
             <Route index element={<Home brands={brands} data={data} />} />
             <Route
               path="product-page"

@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
-import { homePageData } from "../../scripts/HelperFunctions";
+import { processData } from "../../scripts/HelperFunctions";
 
 function SpliderSet(props) {
-  const [productData] = homePageData(props.data, props.brands);
+  const [productData] = processData(props.data, props.brands, true, true);
 
   const InternalSSD = [];
   const ExternalSSD = [];

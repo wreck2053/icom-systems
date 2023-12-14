@@ -1,11 +1,11 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { homePageData } from "../../scripts/HelperFunctions";
+import { processData } from "../../scripts/HelperFunctions";
 
 function MyHeader(props) {
   const [showDropdown, setShowDropdown] = useState("");
-  const [, brandNames] = homePageData(props.data, props.brands);
+  const [, brandNames] = processData(null, props.brands, false, false);
 
   return (
     <>

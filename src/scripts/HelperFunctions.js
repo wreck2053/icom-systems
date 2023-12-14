@@ -11,17 +11,19 @@ export const imagesContext = require.context(
   /\.jpg$/
 );
 
-export function homePageData(data, brands) {
-  for (let id in data) {
-    data[id].Image = imagesContext("./" + id + ".jpg");
-    data[id].ID = id;
+export function processData(data, brands, shuffleData, shuffleBrands) {
+  if (data) {
+    for (let id in data) {
+      data[id].Image = imagesContext("./" + id + ".jpg");
+      data[id].ID = id;
+    }
   }
 
-  const productData = Object.values(data);
-  const brandNames = Object.values(brands);
+  const productData = data ? Object.values(data) : [];
+  const brandNames = brands ? Object.values(brands) : [];
 
-  shuffleList(productData);
-  shuffleList(brandNames);
+  if (shuffleData) shuffleList(productData);
+  if (shuffleBrands) shuffleList(brandNames);
 
   return [productData, brandNames];
 }

@@ -6,7 +6,7 @@ import "./Layout.css";
 function Layout(props) {
   return (
     <>
-      <MyHeader brands={props.brands} data={props.data} />
+      <MyHeader brands={props.brands} />
       <div id="main-content">
         <Outlet />
       </div>

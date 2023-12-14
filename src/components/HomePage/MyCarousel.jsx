@@ -1,9 +1,14 @@
 import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
-import { homePageData } from "../../scripts/HelperFunctions";
+import { processData } from "../../scripts/HelperFunctions";
 
 function MyCarousel(props) {
-  const [productData, brandNames] = homePageData(props.data, props.brands);
+  const [productData, brandNames] = processData(
+    props.data,
+    props.brands,
+    true,
+    true
+  );
   const topProducts = [];
   for (let brandName of brandNames) {
     for (let product of productData) {
