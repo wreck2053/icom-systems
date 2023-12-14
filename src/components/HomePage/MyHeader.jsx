@@ -1,12 +1,14 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle";
-import "bootstrap/dist/css/bootstrap.css";
-import SearchBox from "./SearchBox";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { homePageData } from "../../scripts/HelperFunctions";
 
-function MyHeader() {
+function MyHeader(props) {
+  const [showDropdown, setShowDropdown] = useState("");
+  const [, brandNames] = homePageData(props.data, props.brands);
+
   return (
     <>
-      <SearchBox />
       <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
@@ -35,57 +37,30 @@ function MyHeader() {
                   About Us
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <Link
+                  to={"/product-page"}
                   className="nav-link dropdown-toggle"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  onMouseEnter={() => setShowDropdown("show")}
+                  onMouseLeave={() => setShowDropdown("")}
                 >
                   Products
                 </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <Link className="dropdown-item" to="/product-page">
-                      View all products
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-CRUCIAL"
-                    >
-                      CRUCIAL
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-SAMSUNG"
-                    >
-                      SAMSUNG
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-TOSHIBA"
-                    >
-                      TOSHIBA
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/product-page#hdr-WESTERN DIGITAL"
-                    >
-                      WESTERN DIGITAL
-                    </Link>
-                  </li>
+                <ul
+                  className={"dropdown-menu " + showDropdown}
+                  onMouseEnter={() => setShowDropdown("show")}
+                  onMouseLeave={() => setShowDropdown("")}
+                >
+                  {brandNames.map((brandName) => (
+                    <li key={brandName}>
+                      <Link
+                        to={"/product-page#hdr-" + brandName}
+                        className="dropdown-item"
+                      >
+                        {brandName}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
             </ul>

@@ -3,10 +3,10 @@ import MyHeader from "../HomePage/MyHeader";
 import MyFooter from "../HomePage/MyFooter";
 import "./Layout.css";
 
-function Layout() {
+function Layout(props) {
   return (
     <>
-      <MyHeader />
+      <MyHeader brands={props.brands} data={props.data} />
       <div id="main-content">
         <Outlet />
       </div>
