@@ -11,7 +11,7 @@ import image5 from "../../assets/image5.jpg";
 function Awards() {
   // custom productDetails
   const productDetails = {
-    Name: "Product Name #",
+    Name: "",
     Capacity: "10TB",
     Brand: "Seagate",
     Interface: "SATA 6Gb/s",
@@ -25,7 +25,12 @@ function Awards() {
     ],
   };
 
-  const images = [image1, image2, image3, image4, image5];
+  const images = [
+    "https://www.iafastro.org/assets/image-cache/images/static/awards/industry-award/excellence-industry-award.e71e187e.jpg",
+    "https://www.pigeon-in.com/wp-content/uploads/2019/04/1.jpeg",
+    "https://www.sarkaritel.com/wp-content/uploads/2022/08/21ntpc_award.jpg",
+    "https://in.hd-hyundaice.com/cia-award-image-3.png",
+  ];
   const productData = images.map((image) => ({
     ...productDetails,
     Image: image,

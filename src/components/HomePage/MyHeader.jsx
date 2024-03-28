@@ -64,18 +64,6 @@ function MyHeader(props) {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex" id="search-form">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                id="search-input"
-              />
-              <button className="btn btn-outline-primary" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

@@ -44,7 +44,7 @@ function PersonalInfo() {
           <div>
             <img
               src={
-                "https://static.themoscowtimes.com/image/1920/e1/8647c7c484f44b68af6e62907e2053fe.jpeg"
+                "https://media.licdn.com/dms/image/D5612AQFQpi1Z6qrZxA/article-cover_image-shrink_600_2000/0/1703776731641?e=2147483647&v=beta&t=9AzNi1ae25287Rpt_LVjGne3wAJ7MqblEse0SpGKQm8"
               }
               height={250}
               style={{ borderRadius: 5 }}
@@ -59,12 +59,13 @@ function PersonalInfo() {
               paddingLeft: 50,
             }}
           >
-            Vladimir Vladimirovich Putin[c] (born 7 October 1952) is a Russian
-            politician and former intelligence officer who has been President of
-            Russia since 2012. Putin has held continuous positions as president
-            or prime minister since 1999:[d] as prime minister from 1999 to 2000
-            and from 2008 to 2012, and as president from 2000 to 2008 and since
-            2012.[e][7]
+            Ratan Naval Tata (born 28 December 1937) is an Indian industrialist,
+            philanthropist and former chairman of Tata Sons. He was a chairman
+            of the Tata Group from 1990 to 2012, and interim chairman from
+            October 2016 through February 2017. He continues to head its
+            charitable trusts.[2][3] In 2008, he received the Padma Vibhushan,
+            the second highest civilian honour in India, after receiving the
+            Padma Bhushan, the third highest civilian honour in 2000.[4]
           </div>
         </div>
       </div>
