@@ -4,7 +4,9 @@ async function fetch_data(endpoint) {
   if (cache[endpoint] !== null) {
     return cache[endpoint];
   }
-  const response = await fetch("http://localhost:5000" + endpoint);
+  const response = await fetch(
+    "http://free-painfully-donkey.ngrok-free.app" + endpoint
+  );
   const data = await response.json();
   cache[endpoint] = data;
   return data;
