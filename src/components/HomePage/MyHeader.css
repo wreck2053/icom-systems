@@ -10,9 +10,11 @@
   transition: background var(--transition-base), border-color var(--transition-base),
     backdrop-filter var(--transition-base), -webkit-backdrop-filter var(--transition-base),
     box-shadow var(--transition-base);
-  height: var(--nav-height);
+  /* min-height instead of height so mobile menu can expand below */
+  min-height: var(--nav-height);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .nav-header.scrolled {
@@ -28,6 +30,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  /* lock to first flex row — never shrink to share row with mobile menu */
+  flex-shrink: 0;
+  min-height: var(--nav-height);
 }
 
 /* ── Brand ── */
@@ -303,27 +308,32 @@
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  flex-shrink: 0;
 }
 .nav-hamburger span {
   display: block;
-  width: 100%;
+  width: 22px;
   height: 2px;
   background: var(--color-text-secondary);
   border-radius: var(--radius-full);
-  transition: transform var(--transition-base), opacity var(--transition-base),
-    background var(--transition-fast);
+  /* explicit fast spring — don't depend on token value */
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.2s ease,
+              background 0.15s ease;
   transform-origin: center;
 }
 .nav-hamburger:hover span {
   background: var(--color-text-primary);
 }
+/* span center-to-center = gap(5) + height(2) = 7px → translateY(7px) */
 .nav-hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -337,6 +347,9 @@
 
 /* ── Mobile nav ── */
 .nav-mobile {
+  /* full second row in the wrapped flex header */
+  width: 100%;
+  flex-shrink: 0;
   background: var(--color-bg-overlay);
   border-top: 1px solid var(--color-glass-border);
   backdrop-filter: blur(20px) saturate(180%);
@@ -344,6 +357,7 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-2) 0 var(--space-4);
+  overflow: hidden;
 }
 
 /* Top-level nav item (shared by links + accordion trigger) */
@@ -351,20 +365,20 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-decoration: none;
   border: none;
   background: none;
-  width: 100%;
+  box-sizing: border-box;
+  width: calc(100% - var(--space-4));
+  margin: 1px var(--space-2);
   text-align: left;
   cursor: pointer;
   min-height: 48px;
   border-radius: var(--radius-md);
-  margin: 0 var(--space-2);
-  width: calc(100% - var(--space-4));
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 .nav-mobile-item:hover,
@@ -395,11 +409,13 @@
 
 /* ── Products accordion panel ── */
 .nav-mobile-products {
-  overflow: hidden;
+  box-sizing: border-box;
+  width: calc(100% - var(--space-4));
   margin: 0 var(--space-2) var(--space-2);
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--color-glass-border);
   border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 /* "View all" CTA inside accordion */
