@@ -1,0 +1,26 @@
+.splider-section {
+  margin-bottom: var(--space-12);
+}
+
+.splider-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.splider-divider {
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--color-accent-primary), var(--color-accent-secondary));
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.splider-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}

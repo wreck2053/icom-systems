@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -31,13 +30,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="container" style={{ marginTop: "25%" }}>
-        <div className="d-flex justify-content-center align-items-center">
-          <LoadingSpinner loading={loading} />
-        </div>
-      </div>
-    );
+    return <LoadingSpinner loading={loading} />;
   }
 
   return (

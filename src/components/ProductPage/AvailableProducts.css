@@ -1,3 +1,7 @@
 #no-prod-hdr {
-    text-align: center;
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-16) 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
 }

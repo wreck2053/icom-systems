@@ -1,6 +1,3 @@
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { imagesContext } from "./HelperFunctions";
 
@@ -14,81 +11,82 @@ function createCards(data) {
     let card_no = 0;
     let remRows = [];
 
-    // Push heading & show more button (if exists) of prod_type
+    // Section header with Show More button
     cards.push(
-      <div id={"hdr-" + prod_type} style={{ display: "flex" }}>
-        <div style={{ marginRight: 100 }}>
-          <h3> {prod_type} </h3>
-        </div>
+      <div
+        id={"hdr-" + prod_type}
+        className="product-section-header"
+        key={"hdr-" + prod_type}
+      >
+        <h3 className="product-section-title">{prod_type}</h3>
         {Object.keys(data[prod_type]["Name"]).length > cards_per_row && (
-          <div>
-            <button
-              className={prod_type}
-              onClick={(event) => {
-                let btn = event.currentTarget;
-                let divElement = document.getElementById("rr-" + btn.className);
-
-                if (btn.textContent === "Show More") {
-                  btn.textContent = "Show Less";
-                  divElement.hidden = false;
-                } else {
-                  btn.textContent = "Show More";
-                  divElement.hidden = true;
-                }
-              }}
-            >
-              Show More
-            </button>
-          </div>
+          <button
+            className={"show-more-btn " + prod_type}
+            onClick={(event) => {
+              let btn = event.currentTarget;
+              let divElement = document.getElementById("rr-" + btn.dataset.type);
+              if (btn.textContent === "Show More") {
+                btn.textContent = "Show Less";
+                divElement.hidden = false;
+              } else {
+                btn.textContent = "Show More";
+                divElement.hidden = true;
+              }
+            }}
+            data-type={prod_type}
+          >
+            Show More
+          </button>
         )}
       </div>
     );
-    cards.push(<br />);
 
     for (let idx in data[prod_type]["Name"]) {
       let prod_name = data[prod_type]["Name"][idx];
       let prod_img = imagesContext('./' + idx + '.jpg');
 
-      // Push first row into a sep div, rem rows together into another div
       if (card_no % cards_per_row === 0) {
         if (row === 1) {
           cards.push(
-            <div className="first-row" id={"fr-" + prod_type}>
-              <Row> {cols} </Row>
-              <br />
+            <div className="product-grid first-row" id={"fr-" + prod_type} key={"fr-" + prod_type}>
+              {cols}
             </div>
           );
-        } else remRows.push(<Row> {cols} </Row>, <br />);
+        } else remRows.push(<div className="product-grid" key={"rr-row-" + prod_type + "-" + row}>{cols}</div>);
         cols = [];
         row += 1;
         card_no = 0;
       }
 
-      // Push card into column
       cols.push(
-        <Col xs={12 / cards_per_row} className="d-flex">
-          <Link
-            to={"/product/" + prod_type + "/id/" + idx}
-            style={{textDecoration: 'none'}}>
-            <Card style={{ width: "18rem", padding: "10px"}} className="flex-fill">
-              <Card.Img variant="top" src={prod_img} height={200} />
-              <Card.Body>
-                <Card.Title> {prod_name} </Card.Title>
-              </Card.Body>
-            </Card>
-          </Link>
-        </Col>
+        <Link
+          key={idx}
+          to={"/product/" + prod_type + "/id/" + idx}
+          className="product-grid-card"
+        >
+          <div className="catalog-card">
+            <div className="catalog-card__image-wrap">
+              <img src={prod_img} alt={prod_name} className="catalog-card__image" />
+              <div className="catalog-card__shine" />
+              <div className="catalog-card__overlay">
+                <span className="catalog-card__cta">View Details</span>
+              </div>
+            </div>
+            <div className="catalog-card__body">
+              <p className="catalog-card__name">{prod_name}</p>
+            </div>
+          </div>
+        </Link>
       );
       card_no += 1;
     }
 
-    // Push last row of cards of prod_type
-    if (row > 1) remRows.push(<Row> {cols} </Row>, <br />);
+    // Push last row
+    if (row > 1) remRows.push(<div className="product-grid" key={"rr-last-" + prod_type}>{cols}</div>);
     else {
       cards.push(
-        <div className="first-row" id={"fr-" + prod_type}>
-          <Row> {cols} </Row>
-          <br />
+        <div className="product-grid first-row" id={"fr-" + prod_type} key={"fr-" + prod_type}>
+          {cols}
         </div>
       );
     }
@@ -96,14 +94,13 @@ function createCards(data) {
     row += 1;
     card_no = 0;
 
-    // Push rem rows as a single div into cards
     cards.push(
-      <div className="rem-rows" id={"rr-" + prod_type} hidden={true}>
+      <div className="rem-rows" id={"rr-" + prod_type} hidden={true} key={"rr-" + prod_type}>
         {remRows}
       </div>
     );
 
-    cards.push(<br />, <br />);
+    cards.push(<div key={"spacer-" + prod_type} style={{ marginBottom: 'var(--space-12)' }} />);
   }
 
   return cards;

@@ -1,24 +1,30 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
-    <Container className="text-center" style={{ marginTop: "5%" }}>
-      <Row>
-        <Col>
-          <h1 className="display-4">404</h1>
-          <p className="lead">Oops! Page not found</p>
-          <p>
-            The page you are looking for might have been removed, had its name
-            changed, or is temporarily unavailable.
-          </p>
-          <Link to="/">
-            <Button variant="primary">Go to Home</Button>
-          </Link>
-        </Col>
-      </Row>
-    </Container>
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      justifyContent: 'center', minHeight: '70vh', gap: 'var(--space-6)',
+      padding: 'var(--space-8)',
+    }}>
+      <span style={{
+        fontFamily: 'var(--font-mono)', fontSize: 'var(--text-4xl)',
+        fontWeight: 'var(--font-weight-bold)', color: 'var(--color-accent-primary)',
+        lineHeight: 1,
+      }}>404</span>
+      <h1 style={{ fontSize: 'var(--text-xl)', color: 'var(--color-text-primary)' }}>
+        Page Not Found
+      </h1>
+      <p style={{
+        color: 'var(--color-text-secondary)', maxWidth: 420,
+        textAlign: 'center', lineHeight: 'var(--line-height-loose)',
+      }}>
+        The page you are looking for might have been removed, had its name
+        changed, or is temporarily unavailable.
+      </p>
+      <Link to="/" className="btn-primary">Return Home</Link>
+    </div>
   );
 }
 

@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.css";
 import MySplider from "./MySplider";
 import { processData } from "../../scripts/HelperFunctions";
 
@@ -29,34 +28,12 @@ function SpliderSet(props) {
   ExternalHDD.splice(perSlider);
 
   return (
-    <>
-      <div className="container">
-        <MySplider
-          height={200}
-          productData={InternalSSD}
-          perPage={4}
-          title="SSD"
-        />
-        <MySplider
-          height={200}
-          productData={ExternalSSD}
-          perPage={4}
-          title="External Drives SSD"
-        />
-        <MySplider
-          height={200}
-          productData={InternalHDD}
-          perPage={4}
-          title="Hard Drives"
-        />
-        <MySplider
-          height={200}
-          productData={ExternalHDD}
-          perPage={4}
-          title="External Drives HDD"
-        />
-      </div>
-    </>
+    <div className="splider-set container">
+      <MySplider height={200} productData={InternalSSD} perPage={4} title="SSD" />
+      <MySplider height={200} productData={ExternalSSD} perPage={4} title="External Drives SSD" />
+      <MySplider height={200} productData={InternalHDD} perPage={4} title="Hard Drives" />
+      <MySplider height={200} productData={ExternalHDD} perPage={4} title="External Drives HDD" />
+    </div>
   );
 }
 

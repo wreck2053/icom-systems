@@ -1,22 +1,41 @@
 import React from "react";
-import { css } from "@emotion/react";
-import { ClipLoader } from "react-spinners";
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-
-function LoadingSpinner({ loading }) {
+function LoadingSpinner() {
   return (
-    <div className="sweet-loading">
-      <ClipLoader
-        color={"#36D7B7"}
-        loading={loading}
-        css={override}
-        size={50}
-      />
+    <div className="loading-screen">
+      <div className="loading-ring" />
+      <span className="loading-brand">I-Com Systems</span>
+      <style>{`
+        .loading-screen {
+          position: fixed;
+          inset: 0;
+          background: var(--color-bg-base);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-6);
+          z-index: 9999;
+        }
+        .loading-ring {
+          width: 52px;
+          height: 52px;
+          border: 3px solid var(--color-bg-subtle);
+          border-top-color: var(--color-accent-primary);
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+          box-shadow: var(--glow-primary);
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-brand {
+          font-family: var(--font-heading);
+          font-size: var(--text-sm);
+          font-weight: var(--font-weight-semibold);
+          color: var(--color-text-muted);
+          letter-spacing: var(--letter-spacing-widest);
+          text-transform: uppercase;
+        }
+      `}</style>
     </div>
   );
 }
