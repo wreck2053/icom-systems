@@ -9,7 +9,12 @@ function Filter(props) {
   return (
     <form className="filter-panel" onSubmit={event => handleSubmit(event, filter, props.setGlobalFilter)}>
       <div className="filter-panel-header">
-        <h3 className="filter-heading">Filters</h3>
+        <h3 className="filter-heading">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-accent-primary)' }}>
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+          </svg>
+          Filters
+        </h3>
         <button type="reset" className="filter-reset" onClick={() => handleReset(setFilter)}>
           Reset
         </button>

@@ -9,7 +9,10 @@ function MySplider(props) {
       {props.title && (
         <div className="splider-header">
           <div className="splider-divider" />
-          <h2 className="splider-title">{props.title}</h2>
+          <div className="splider-header-text">
+            <h2 className="splider-title">{props.title}</h2>
+            {props.subtitle && <span className="splider-subtitle">{props.subtitle}</span>}
+          </div>
         </div>
       )}
       <Splide
@@ -22,6 +25,11 @@ function MySplider(props) {
           autoplay: true,
           arrows: props.showArrows ?? true,
           gap: "1rem",
+          breakpoints: {
+            1024: { perPage: Math.min(props.perPage, 3) },
+            768:  { perPage: Math.min(props.perPage, 2) },
+            480:  { perPage: 1 },
+          },
         }}
       >
         {props.productData.map((productDetails, index) => (

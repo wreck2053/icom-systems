@@ -1,3 +1,52 @@
+/* ── Catalog Hero Banner ── */
+.catalog-hero {
+  position: relative;
+  padding: var(--space-16) 0 var(--space-12);
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-glass-border);
+}
+.catalog-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.catalog-hero-blob {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,194,255,0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  right: -5%;
+  top: -20%;
+}
+.catalog-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.catalog-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+.catalog-hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+.catalog-hero-sub {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
 .catalog-page {
   padding-top: var(--space-8);
   padding-bottom: var(--space-16);
@@ -26,16 +75,31 @@
   align-items: center;
   gap: var(--space-4);
   margin-bottom: var(--space-5);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--color-glass-border);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-glass-border);
+  border-left: 3px solid var(--color-accent-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 }
 
 .product-section-title {
   font-family: var(--font-heading);
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.product-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent-primary);
+  flex-shrink: 0;
 }
 
 .show-more-btn {

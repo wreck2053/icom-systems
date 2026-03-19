@@ -188,6 +188,20 @@ button {
   color: var(--color-text-inverted);
 }
 
+/* Reusable gradient text — used in Hero, CTA, and other headlines */
+.hero-title-gradient {
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, #a78bfa 60%, var(--color-accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease-in-out infinite alternate;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .section-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

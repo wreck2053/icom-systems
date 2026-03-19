@@ -1,0 +1,102 @@
+.marquee-section {
+  padding: var(--space-16) 0 var(--space-12);
+  background: var(--color-bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-bg-base), transparent);
+}
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--color-bg-base), transparent);
+}
+
+.marquee-label {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+}
+
+.marquee-track {
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.marquee-row {
+  display: flex;
+  gap: var(--space-4);
+  width: max-content;
+}
+
+.marquee-row--fwd {
+  animation: marqueeForward 35s linear infinite;
+}
+.marquee-row--rev {
+  animation: marqueeForward 42s linear infinite reverse;
+}
+
+@keyframes marqueeForward {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.marquee-card-inner {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.marquee-card:hover .marquee-card-inner {
+  border-color: rgba(0, 194, 255, 0.2);
+  box-shadow: var(--glow-card);
+}
+
+.marquee-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
+.marquee-card-tag {
+  text-align: center;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Pause on hover */
+.marquee-track:hover .marquee-row {
+  animation-play-state: paused;
+}
