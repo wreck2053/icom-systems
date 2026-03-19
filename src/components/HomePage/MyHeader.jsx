@@ -51,15 +51,18 @@ const NAV_CATEGORIES = [
   },
 ];
 
+const BRAND_COLORS = ["#00c2ff", "#ff9500", "#a78bfa", "#00d68f", "#f472b6", "#fb923c", "#34d399", "#60a5fa"];
+
 function MyHeader(props) {
   const [scrolled, setScrolled] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const dropdownTimeout = useRef(null);
   const location = useLocation();
   const [, brandNames] = processData(null, props.brands, false, false);
 
-  useEffect(() => { setMobileOpen(false); }, [location]);
+  useEffect(() => { setMobileOpen(false); setMobileProductsOpen(false); }, [location]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -196,29 +199,84 @@ function MyHeader(props) {
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <motion.nav
             className="nav-mobile"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Link to="/" className="nav-mobile-link">Home</Link>
-            <Link to="/about-page" className="nav-mobile-link">About Us</Link>
-            <Link to="/product-page" className="nav-mobile-link">All Products</Link>
-            <div className="nav-mobile-sub-group">
-              <p className="nav-mobile-sub-label">By Brand</p>
-              {brandNames.map(b => (
-                <Link key={b} to={"/product-page#hdr-" + b} className="nav-mobile-sub">{b}</Link>
-              ))}
-            </div>
-            <div className="nav-mobile-sub-group">
-              <p className="nav-mobile-sub-label">By Category</p>
-              {NAV_CATEGORIES.map(c => (
-                <Link key={c.name} to={"/product-page" + c.hash} className="nav-mobile-sub">{c.name}</Link>
-              ))}
-            </div>
-          </motion.div>
+            <Link to="/" className="nav-mobile-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Home
+            </Link>
+
+            <Link to="/about-page" className="nav-mobile-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              About Us
+            </Link>
+
+            {/* Products accordion */}
+            <button
+              className={"nav-mobile-item nav-mobile-item--accordion" + (mobileProductsOpen ? " open" : "")}
+              onClick={() => setMobileProductsOpen(o => !o)}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M18 10v4"/></svg>
+              Products
+              <svg
+                className={"nav-mobile-chevron" + (mobileProductsOpen ? " open" : "")}
+                width="14" height="14" viewBox="0 0 12 12" fill="currentColor"
+              >
+                <path d="M6 8L1 3h10L6 8z"/>
+              </svg>
+            </button>
+
+            <AnimatePresence>
+              {mobileProductsOpen && (
+                <motion.div
+                  className="nav-mobile-products"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {/* View all CTA */}
+                  <Link to="/product-page" className="nav-mobile-viewall">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    View all 138+ products
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
+
+                  {/* Brands */}
+                  <p className="nav-mobile-products-label">By Brand</p>
+                  <div className="nav-mobile-brands">
+                    {brandNames.map((b, i) => (
+                      <Link key={b} to={"/product-page#hdr-" + b} className="nav-mobile-brand-chip">
+                        <span className="nav-mobile-brand-dot" style={{ background: BRAND_COLORS[i % BRAND_COLORS.length] }} />
+                        {b}
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Categories */}
+                  <p className="nav-mobile-products-label">By Category</p>
+                  <div className="nav-mobile-cats">
+                    {NAV_CATEGORIES.map(cat => (
+                      <Link key={cat.name} to={"/product-page" + cat.hash} className="nav-mobile-cat">
+                        <span className="nav-mobile-cat-icon" style={{ color: cat.color, background: cat.color + "18" }}>
+                          {cat.icon}
+                        </span>
+                        <span className="nav-mobile-cat-info">
+                          <span className="nav-mobile-cat-name">{cat.name}</span>
+                          <span className="nav-mobile-cat-desc">{cat.desc}</span>
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>
