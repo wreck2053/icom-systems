@@ -112,6 +112,13 @@ function Awards() {
           opacity: 0.4;
           z-index: 1;
         }
+        @media (max-width: 768px) {
+          .awards-header { padding-top: var(--space-8); padding-bottom: var(--space-5); }
+          .awards-header__title { font-size: var(--text-xl); }
+          /* Override Splide slide height for mobile */
+          .awards-carousel .splide__slide > div,
+          .awards-carousel .product-card--hero { height: 55vw !important; min-height: 260px !important; max-height: 420px; }
+        }
       `}</style>
     </div>
   );

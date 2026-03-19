@@ -70,14 +70,16 @@
   font-size: var(--text-sm);
   transition: color var(--transition-fast);
   user-select: none;
+  min-height: 44px;
+  padding: var(--space-1) 0;
 }
 .custom-checkbox:hover { color: var(--color-text-primary); }
 
 .custom-checkbox input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: 1.5px solid var(--color-text-muted);
   border-radius: var(--radius-sm);
   background: transparent;

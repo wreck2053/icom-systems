@@ -135,7 +135,12 @@
 @media (max-width: 768px) {
   .product-detail__body {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-6);
     margin-top: var(--space-4);
   }
+  .product-detail__title { font-size: var(--text-xl); }
+}
+@media (max-width: 480px) {
+  .product-detail__hero { height: 120px; }
+  .product-detail__body { padding-top: var(--space-4); }
 }

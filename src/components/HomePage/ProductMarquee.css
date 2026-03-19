@@ -15,6 +15,10 @@
   z-index: 2;
   pointer-events: none;
 }
+@media (max-width: 768px) {
+  .marquee-section::before,
+  .marquee-section::after { width: 60px; }
+}
 .marquee-section::before {
   left: 0;
   background: linear-gradient(90deg, var(--color-bg-base), transparent);

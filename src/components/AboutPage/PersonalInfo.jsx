@@ -83,7 +83,7 @@ function PersonalInfo() {
       <style>{`
         .pi-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: var(--space-6);
         }
         .pi-card {
@@ -214,7 +214,11 @@ function PersonalInfo() {
           letter-spacing: var(--letter-spacing-wide);
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+          .pi-card { grid-template-columns: 140px 1fr; }
+          .pi-card__photo { width: 140px; }
+        }
+        @media (max-width: 540px) {
           .pi-grid { grid-template-columns: 1fr; }
           .pi-card { grid-template-columns: 1fr; }
           .pi-card__photo { width: 100%; height: 200px; min-height: unset; }

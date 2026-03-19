@@ -110,6 +110,7 @@
   top: calc(100% + 14px);
   right: 0;
   width: 560px;
+  max-width: calc(100vw - var(--space-6));
   background: var(--color-bg-overlay);
   border: 1px solid var(--color-glass-border);
   border-radius: var(--radius-xl);
@@ -389,10 +390,21 @@
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* Megamenu: stack columns and reduce padding on narrow viewports */
+@media (max-width: 600px) {
+  .megamenu {
+    right: calc(-1 * var(--space-3));
+    left: var(--space-3);
+    width: auto;
+    max-width: none;
   }
-  .nav-hamburger {
-    display: flex;
-  }
+  .megamenu-body { flex-direction: column; }
+  .megamenu-divider { height: 1px; width: auto; }
+  .megamenu-col { flex: none; }
+  .megamenu-col--wide { flex: none; }
+  .megamenu-categories { grid-template-columns: 1fr; }
 }

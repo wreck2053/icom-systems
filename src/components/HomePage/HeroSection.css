@@ -514,7 +514,16 @@
   .hero-stats { justify-content: center; }
 }
 
+@media (max-width: 768px) {
+  .hero-visual { display: none; }
+  .hero-section { padding: var(--space-16) 0 var(--space-12); }
+  .hero-stats { gap: var(--space-6); flex-wrap: wrap; }
+}
+
 @media (max-width: 500px) {
   .hero-visual { display: none; }
-  .hero-title { font-size: 2.2rem; }
+  .hero-title { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .hero-stats { gap: var(--space-4); }
+  .hero-ctas { flex-direction: column; align-items: center; width: 100%; }
+  .hero-ctas a, .hero-ctas button { width: 100%; justify-content: center; }
 }

@@ -209,11 +209,17 @@ function CompanyInfo() {
           color: var(--color-text-primary);
           line-height: 1.3;
         }
-        @media (max-width: 900px) {
-          .ci-card__body { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-8); }
+        @media (max-width: 768px) {
+          .ci-card__body { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-6); }
           .ci-card__divider { height: 1px; width: auto; }
           .ci-card__highlights { flex-direction: row; flex-wrap: wrap; padding-top: 0; }
-          .ci-highlight { flex: 1; min-width: 200px; }
+          .ci-highlight { flex: 1; min-width: 140px; }
+        }
+        @media (max-width: 480px) {
+          .ci-card__body { padding: var(--space-5); }
+          .ci-highlight { min-width: 100%; }
+          .ci-card__locations { gap: var(--space-1); }
+          .ci-location-chip { font-size: 0.6rem; }
         }
       `}</style>
     </motion.div>

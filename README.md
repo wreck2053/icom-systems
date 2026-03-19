@@ -25,6 +25,27 @@ Live deployment: [**icomsystems.netlify.app**](https://icomsystems.netlify.app/)
 
 ---
 
+## Mobile View
+
+Full mobile responsiveness at 390×844 (iPhone 14). Hamburger nav, stacked layouts, and touch-optimised interactions.
+
+### Mobile Hero
+![Mobile Hero](screenshots/mobile-01-hero.png)
+
+### Mobile Navigation (Open)
+![Mobile Nav Open](screenshots/mobile-02-nav-open.png)
+
+### Mobile Product Catalog
+![Mobile Products](screenshots/mobile-03-products.png)
+
+### Mobile About Page
+![Mobile About](screenshots/mobile-04-about.png)
+
+### Mobile Product Detail
+![Mobile Product Detail](screenshots/mobile-05-detail.png)
+
+---
+
 ## What the App Does
 
 I-Com Systems is a single-page React application that serves as a **product catalog and company brochure** for a storage hardware distributor. It fetches live product data from a Flask backend, renders a filterable catalog of 138+ drives, and provides individual product detail pages — all wrapped in a premium SAAS-level dark UI.

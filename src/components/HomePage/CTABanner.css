@@ -34,6 +34,12 @@
   left: -5%;
   animation: blobDrift2 20s ease-in-out infinite alternate;
 }
+@media (max-width: 768px) {
+  .cta-blob--1 { width: 280px; height: 280px; }
+  .cta-blob--2 { width: 220px; height: 220px; }
+  .cta-section { padding: var(--space-16) 0; }
+  .cta-subtitle { font-size: var(--text-base); }
+}
 
 .cta-grid {
   position: absolute;
